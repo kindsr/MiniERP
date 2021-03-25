@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\Machines\**" />
+    <EmbeddedResource Remove="ViewModels\Machines\**" />
+    <None Remove="ViewModels\Machines\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\MachineModel.cs" />
+    <Compile Remove="Services\IMachineService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nailpod.Data\Nailpod.Data.csproj" />
+  </ItemGroup>
+
+</Project>
